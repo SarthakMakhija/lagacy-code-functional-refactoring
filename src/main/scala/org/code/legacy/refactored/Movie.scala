@@ -16,12 +16,12 @@ object MovieTypes {
 
 object MoviePriceFactory {
 
-  private val amountCalculationStrategies = Map[Int, (Int) => Double](MovieTypes.REGULAR      -> regularMovieAmount,
-                                                                      MovieTypes.CHILDRENS    -> childrenMovieAmount,
-                                                                      MovieTypes.NEW_RELEASE  -> newReleaseMovieAmount
-                                                                     )
+  private val RENTAL_AMOUNT_COMPUTATION_STRATEGIES = Map[Int, (Int) => Double](MovieTypes.REGULAR      -> regularMovieAmount,
+                                                                               MovieTypes.CHILDRENS    -> childrenMovieAmount,
+                                                                               MovieTypes.NEW_RELEASE  -> newReleaseMovieAmount
+                                                                              )
 
-  def movieAmountStrategy(priceCode: Int)                    = amountCalculationStrategies(priceCode)
+  def movieAmountStrategy(priceCode: Int)                    = RENTAL_AMOUNT_COMPUTATION_STRATEGIES(priceCode)
 
   private def regularMovieAmount   (daysRented: Int): Double = if (daysRented > 2) 2   + (daysRented - 2) * 1.5 else 2
   private def childrenMovieAmount  (daysRented: Int): Double = if (daysRented > 3) 1.5 + (daysRented - 3) * 1.5 else 1.5

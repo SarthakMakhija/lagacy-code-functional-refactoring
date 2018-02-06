@@ -1,9 +1,8 @@
-package org.code.legacy.model.refactored
+package org.code.legacy.refactored
 
-import org.code.legacy.refactored.{Customer, Movie, MovieTypes, Rental}
 import org.scalatest.FlatSpec
 
-class CustomerTest extends FlatSpec {
+class CustomerUnitTest extends FlatSpec {
 
   it should "return customer text statement given all rentals" in {
     val expectedStatement = "Rental Record for john\n\tpadmavat\t6.0\n\tdabang\t3.5\n\tangry-birds\t3.0\nAmount owed is 12.5\nYou earned 4 frequent renter points"
